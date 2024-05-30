@@ -1,1 +1,41 @@
+I am currently developing an API integration for a project. I am employing the axios library to formulate requests to the API.
+import axios from 'axios';
 
+const API_BASE_URL = 'https://test-server.com/api'; // Replace with actual API base URL
+
+export const fetchProducts = async (category, company) => {
+  try {
+    const response = await axios.get(${API_BASE_URL}/products, {
+      params: { category, company }
+    });
+    return response.data.products;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return [];
+  }
+};
+
+
+
+design ui components
+import React from 'react';
+import { Card, CardContent, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+const ProductCard = ({ product }) => (
+  <Card>
+    <img src={https://via.placeholder.com/150?text=${product.name}} alt={product.name} />
+    <CardContent>
+      <Typography variant="h5">{product.name}</Typography>
+      <Typography>Company: {product.company}</Typography>
+      <Typography>Category: {product.category}</Typography>
+      <Typography>Price: ${product.price}</Typography>
+      <Typography>Rating: {product.rating}</Typography>
+      <Typography>Discount: {product.discount}%</Typography>
+      <Typography>Availability: {product.availability}</Typography>
+      <Link to={/product/${product.id}}>View Details</Link>
+    </CardContent>
+  </Card>
+);
+
+export default ProductCard;
